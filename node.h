@@ -8,9 +8,12 @@ class node
     int value;
     node *next;
 
-public:
+//public:
    node(int);
-   //~node();
+   /* ~node();
+     void set_next(node*);
+    node * get_next();
+   */
 };
 node::node(int x ){
   value=x;
