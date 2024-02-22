@@ -9,7 +9,7 @@ class node
     node *next;
 
 //public:
-   node(int);
+   node(int=0);
    /* ~node();
      void set_next(node*);
     node * get_next();
@@ -19,6 +19,11 @@ node::node(int x ){
   value=x;
   next=NULL;
 }
+
+/* node::~node(){
+     cout<<"Deleting "<< value<<endl;
+}
+*/
 
 
 #endif
