@@ -14,4 +14,10 @@ int main(int argc, char **argv){
     cout <<temp->value;
     cout<<temp->next->value;
 
+// 1. Create node c
+//2. Connect b->c
+//3. Use the constructor to set the value
+//4. use loop to create all nodes
+//5. Delete all nodes
+
 }//automatically call  destructors
