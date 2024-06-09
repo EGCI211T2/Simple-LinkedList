@@ -16,8 +16,8 @@ int main(int argc, char **argv){
 
 // 1. Create node c
 //2. Connect b->c
-//3. Use the constructor to set the value
-//4. use loop to create all nodes
-//5. Delete all nodes
+
+//3. use loop to print all nodes
+
 
 }//automatically call  destructors
