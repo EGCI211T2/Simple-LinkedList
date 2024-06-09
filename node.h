@@ -20,7 +20,7 @@ node::node(int x ){
   value=x;
   next=NULL;
 }
-void print(){
+void node::print(){
     cout<<value ;
 }
 
