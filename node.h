@@ -10,6 +10,7 @@ class node
 
 //public:
    node(int=0);
+   void print();
    /* ~node();
      void set_next(node*);
     node * get_next();
@@ -18,6 +19,10 @@ class node
 node::node(int x ){
   value=x;
   next=NULL;
+}
+void print(){
+    cout<<value <<"->";
+    if(next==NULL) cout<<"NULL"<<endl;
 }
 
 /* node::~node(){
