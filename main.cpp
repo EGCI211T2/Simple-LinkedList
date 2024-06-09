@@ -4,15 +4,15 @@ using namespace std;
 #include "node.h"
 
 int main(int argc, char **argv){
-	int x=5;
-    node a,b,*head;
-    a.value = x;
-    a.next=&b;
-    head=&a; 
-    b.value=head->value+3; // (*head).value  a.value
-    temp=head;
-    cout <<temp->value;
-    cout<<temp->next->value;
+
+  node a(5),b,*head;
+  a.next=&b;
+  head=&a; 
+  b.value=head->value+3; // (*head).value  a.value
+  temp=head;
+  temp->print()
+  temp->next->print();
+
 
 // 1. Create node c
 //2. Connect b->c
