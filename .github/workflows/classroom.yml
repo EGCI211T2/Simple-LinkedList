@@ -1,0 +1,61 @@
+name: Autograding Tests
+'on':
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test Destructor
+      id: test-destructor
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Test Destructor
+        setup-command: g++ main.cpp -o ll
+        command: "./ll"
+        input: ''
+        expected-output: |-
+          Deleting 5
+          Deleting 8
+          Deleting 11
+        comparison-method: contains
+        timeout: 10
+        max-score: 10
+    - name: Linked list
+      id: linked-list
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Linked list
+        setup-command: g++ mian_ll.cpp
+        command: "./ll 2 3 1 6 7"
+        input: 2->3->1->6->7->NULL
+        expected-output: ''
+        comparison-method: contains
+        timeout: 10
+        max-score: 15
+    - name: Linked list
+      id: linked-list
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Linked list
+        setup-command: g++ mian_ll.cpp
+        command: "./ll 2 3 1 6 7"
+        input: 2->3->1->6->7->NULL
+        expected-output: ''
+        comparison-method: contains
+        timeout: 10
+        max-score: 15
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST-DESTRUCTOR_RESULTS: "${{steps.test-destructor.outputs.result}}"
+        LINKED-LIST_RESULTS: "${{steps.linked-list.outputs.result}}"
+      with:
+        runners: test-destructor,linked-list,linked-list
