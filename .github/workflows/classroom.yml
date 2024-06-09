@@ -52,11 +52,28 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 10
+    - name: Linked list2
+      id: linked-list2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Linked list2
+        setup-command: g++ mian_ll.cpp -o ll
+        command: "./ll 2 3 6 7"
+        input: ''
+        expected-output: |-
+          Deleting 2
+          Deleting 3
+          Deleting 6
+          Deleting 7
+        comparison-method: contains
+        timeout: 10
+        max-score: 15
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-DESTRUCTOR_RESULTS: "${{steps.test-destructor.outputs.result}}"
         LINKED-LIST1_RESULTS: "${{steps.linked-list1.outputs.result}}"
         SIMPLE_RESULTS: "${{steps.simple.outputs.result}}"
+        LINKED-LIST2_RESULTS: "${{steps.linked-list2.outputs.result}}"
       with:
-        runners: test-destructor,linked-list1,simple
+        runners: test-destructor,linked-list1,simple,linked-list2
