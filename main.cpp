@@ -9,7 +9,7 @@ int main(int argc, char **argv){
   a.next=&b;
   head=&a; 
   b.value=head->value+3; // (*head).value  a.value
-  temp=head;
+  node *temp=head;
   temp->print()
   temp->next->print();
 
