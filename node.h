@@ -21,8 +21,7 @@ node::node(int x ){
   next=NULL;
 }
 void print(){
-    cout<<value <<"->";
-    if(next==NULL) cout<<"NULL"<<endl;
+    cout<<value ;
 }
 
 /* node::~node(){
