@@ -52,10 +52,34 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 15
+    - name: Linked list
+      id: linked-list
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Linked list
+        setup-command: g++ mian_ll.cpp
+        command: "./ll 2 3 1 6 7"
+        input: 2->3->1->6->7->NULL
+        expected-output: ''
+        comparison-method: contains
+        timeout: 10
+        max-score: 15
+    - name: Linked list
+      id: linked-list
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Linked list
+        setup-command: g++ mian_ll.cpp
+        command: "./ll 2 3 1 6 7"
+        input: 2->3->1->6->7->NULL
+        expected-output: ''
+        comparison-method: contains
+        timeout: 10
+        max-score: 15
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-DESTRUCTOR_RESULTS: "${{steps.test-destructor.outputs.result}}"
         LINKED-LIST_RESULTS: "${{steps.linked-list.outputs.result}}"
       with:
-        runners: test-destructor,linked-list,linked-list
+        runners: test-destructor,linked-list,linked-list,linked-list,linked-list
