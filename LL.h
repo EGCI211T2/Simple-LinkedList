@@ -4,13 +4,13 @@
 typedef node* nodePtr;
 
 class LL{
-   nodePtr hol;// node * hol;
-          //head of linked list
-   int size;
+      nodePtr hol;// node * hol;
+         //head of linked list
+      int size;
   public:
-     LL();
+      LL();
       void insert_node(int);
-	    void print_all();
+      void printList();
      ~LL();
 };
 
@@ -33,14 +33,16 @@ void LL::insert_node(int x){
 }
 
 
-void LL::print_all (){
+void LL::printList (){
    nodePtr t;
   for(t=hol; t; t=t->next)
 
-
-       cout<<setw(5)<<t->value;
-
-  cout<<endl;
+  {
+       t->print();
+       cout<<" ->";
+  }
+  
+  cout<<"NULL" <<endl;
 }
 
 
